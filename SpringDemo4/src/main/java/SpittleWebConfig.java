@@ -4,20 +4,21 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 /**
  * Created by admin on 2017/5/21.
  */
-public class SpittleWebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{RootConfig.class};
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{SpringMvcConfig.class};
-    }
-
-    @Override
-    protected String[] getServletMappings() {
-        return new String[]{"/"};
-    }
+public class SpittleWebConfig {
+//        extends AbstractAnnotationConfigDispatcherServletInitializer {
+//
+//    @Override
+//    protected Class<?>[] getRootConfigClasses() {
+//        return new Class<?>[]{RootConfig.class};
+//    }
+//
+//    @Override
+//    protected Class<?>[] getServletConfigClasses() {
+//        return new Class<?>[]{SpringMvcConfig.class};
+//    }
+//
+//    @Override
+//    protected String[] getServletMappings() {
+//        return new String[]{"/"};
+//    }
 }
