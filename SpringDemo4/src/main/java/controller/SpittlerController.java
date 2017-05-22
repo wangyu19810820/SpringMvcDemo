@@ -2,16 +2,18 @@ package controller;
 
 import model.Spittler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import service.SpittlerService;
+
+import javax.servlet.http.Part;
+import java.io.File;
 
 /**
  * Created by admin on 2017/5/19.
@@ -70,6 +72,38 @@ public class SpittlerController {
         spittlerService.register(spittler);
         return "redirect:/spittler/" + spittler.getId();
     }
+
+    @RequestMapping(value = "/register3", method = RequestMethod.GET)
+    public String register3(Model model) {
+        model.addAttribute(new Spittler());
+        return "/spittler/register3";
+    }
+
+    @RequestMapping(value = "/register3", method = RequestMethod.POST)
+    public String doRegister3(MultipartFile[] profilePicture) {
+        System.out.println(profilePicture);
+        try {
+            int i = 0;
+            for (MultipartFile file : profilePicture) {
+                i++;
+                file.transferTo(new File("e:\\a" + i + ".txt"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "/spittler/register3";
+    }
+
+//    @RequestMapping(value = "/register3", method = RequestMethod.POST)
+//    public String doRegister3(Part profilePicture) {
+//        System.out.println(profilePicture);
+//        try {
+//            profilePicture.write("e:\\a.txt");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return "/spittler/register3";
+//    }
 
     @RequestMapping("/{id}")
     public String detail(@PathVariable("id")long id, Model model) {
