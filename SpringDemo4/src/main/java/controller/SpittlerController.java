@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import service.SpittlerService;
 
 import javax.servlet.http.Part;
@@ -47,11 +48,13 @@ public class SpittlerController {
     }
 
     @RequestMapping(value = "/register1", method = RequestMethod.POST)
-    public String doRegister1(@Validated Spittler spittler, Errors errors) {
+    public String doRegister1(@Validated Spittler spittler, RedirectAttributes model, Errors errors) {
         if (errors.hasErrors()) {
             return "/spittler/register1";
         }
         spittlerService.register(spittler);
+        model.addAttribute("id", spittler.getId());
+        model.addFlashAttribute("spittler", spittler);
         return "redirect:/spittler/" + spittler.getId();
     }
 
@@ -107,7 +110,9 @@ public class SpittlerController {
 
     @RequestMapping("/{id}")
     public String detail(@PathVariable("id")long id, Model model) {
-        model.addAttribute("spittler", spittlerService.get(id));
+        if (!model.containsAttribute("spittler")) {
+            model.addAttribute("spittler", spittlerService.get(id));
+        }
         return "/spittler/detail";
     }
 

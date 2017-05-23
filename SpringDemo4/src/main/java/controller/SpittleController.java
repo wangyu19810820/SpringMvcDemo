@@ -4,6 +4,7 @@ import model.Spittle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,4 +44,18 @@ public class SpittleController {
         model.addAttribute(service.findById(id));
         return "detail";
     }
+
+    @RequestMapping("/detail")
+    public String detail(long id, Model model) {
+        if (id <= 0) {
+            throw new SpitteNotFoundException();
+        }
+        model.addAttribute(service.findById(id));
+        return "detail";
+    }
+
+//    @ExceptionHandler(SpitteNotFoundException.class)
+//    public String handleSpitteNotFoundException() {
+//        return "/error/notfound1";
+//    }
 }
