@@ -25,6 +25,7 @@ import java.io.IOException;
 @ComponentScan(basePackages = "controller")
 public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
+
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
