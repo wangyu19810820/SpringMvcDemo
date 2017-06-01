@@ -2,14 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:flow="http://www.springframework.org/schema/webflow-config"
-       xsi:schemaLocation="
-                   http://www.springframework.org/schema/beans
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
                    http://www.springframework.org/schema/beans/spring-beans.xsd
                    http://www.springframework.org/schema/webflow-config
-                   http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
-                   ">
+                   http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+        <context:component-scan base-package="controller" />
 
         <flow:flow-registry id="flowRegistry" base-path="/WEB-INF/webflow">
             <flow:flow-location path="order.xml" id="order"></flow:flow-location>
@@ -19,6 +18,7 @@
 
         <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
             <property name="flowRegistry" ref="flowRegistry"/>
+            <property name="order" value="-1"/>
         </bean>
 
         <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">

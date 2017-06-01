@@ -8,9 +8,25 @@
 
     <!-- Customer -->
     <view-state id="welcome">
-
+        <transition on="phoneEntered1" to="lookupCustomer"/>
     </view-state>
 
+    <action-state id="lookupCustomer">
+        <evaluate result="order.customer"
+                result-type="webflow.Customer"
+                expression="pizzaFlowActions.lookupCustomer(requestParameters.phoneNumber)"></evaluate>
+        <transition to="showOrder" />
+    </action-state>
+
+    <view-state id="showOrder">
+        <transition on="createPizza" to="createPizza" />
+        <transition on="checkout" to="takePayment" />
+        <transition on="cancel" to="endState" />
+    </view-state>
+
+    <view-state id="thankYou">
+        <transition to="endState"/>
+    </view-state>
     <!-- End state -->
     <end-state id="endState" />
 </flow>

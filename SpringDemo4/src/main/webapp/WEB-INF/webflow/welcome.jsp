@@ -8,10 +8,10 @@
   	<h2>Welcome to Spring Pizza!!!</h2>
 	
 		<form:form>
-      <input type="hidden" name="_flowExecutionKey" 
-             value="${flowExecutionKey}"/>
-		  <input type="text" name="phoneNumber"/><br/>
-      <input type="submit" name="_eventId_phoneEntered" value="Lookup Customer" />
+      		<input type="hidden" name="_flowExecutionKey" >
+			<input type="text" name="phoneNumber">
+			<input type="submit" name="_eventId_phoneEntered1">
+			<input type="submit" name="_eventId_phoneEntered2">
 		</form:form>
 	</body>
 </html>
