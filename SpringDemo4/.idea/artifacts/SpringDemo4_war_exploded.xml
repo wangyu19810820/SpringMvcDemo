@@ -7,6 +7,8 @@
           <element id="module-output" name="SpringDemo4" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.3.0" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.3" />
           <element id="library" level="project" name="Maven: cglib:cglib:3.2.5" />
           <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.2" />
           <element id="library" level="project" name="Maven: org.apache.ant:ant:1.9.6" />
