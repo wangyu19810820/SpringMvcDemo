@@ -17,14 +17,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer lookupCustomer(String phoneNum) {
-        Customer c = new Customer();
-        c.setId(1);
-        c.setName("name1");
-        c.setPhoneNumber(phoneNum);
-        c.setAddress("address1");
-        c.setCity("city1");
-        c.setState("state1");
-        c.setZipCode("zipcode1");
-        return c;
+        return customerList.stream()
+                .filter(c -> c.getPhoneNumber().equals(phoneNum))
+                .findAny()
+                .orElse(null);
+    }
+
+    @Override
+    public void add(Customer c) {
+        customerList.add(c);
     }
 }

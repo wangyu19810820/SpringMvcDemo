@@ -9,7 +9,7 @@
 		<form:form>
       <input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
-      <input type="submit" name="_eventId_finished" value="Finished" />
+      <input type="submit" name="_eventId_finished1" value="Finished" />
 		</form:form>
 	</body>
 </html>

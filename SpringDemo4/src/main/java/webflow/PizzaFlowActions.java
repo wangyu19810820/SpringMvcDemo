@@ -1,10 +1,10 @@
-package controller;
+package webflow;
 
-import exception.CustomerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import service.CustomerService;
 import webflow.Customer;
+import webflow.CustomerNotFoundException;
 
 /**
  * Created by admin on 2017/6/1.
@@ -22,5 +22,24 @@ public class PizzaFlowActions {
         } else {
             throw new CustomerNotFoundException();
         }
+    }
+
+    public void addCustomer(Customer c) {
+        customerService.add(c);
+    }
+
+    public Payment verifyPayment(PaymentDetails paymentDetails) {
+        Payment payment = null;
+        if(paymentDetails.getPaymentType() == PaymentType.CREDIT_CARD) {
+            payment = new CreditCardPayment();
+        } else {
+            payment = new CashOrCheckPayment();
+        }
+
+        return payment;
+    }
+
+    public void saveOrder(Order order) {
+        System.out.println("save order:" + order);
     }
 }

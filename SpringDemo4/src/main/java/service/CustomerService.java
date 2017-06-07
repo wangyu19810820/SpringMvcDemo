@@ -7,4 +7,5 @@ import webflow.Customer;
  */
 public interface CustomerService {
     Customer lookupCustomer(String phoneNum);
+    void add(Customer c);
 }

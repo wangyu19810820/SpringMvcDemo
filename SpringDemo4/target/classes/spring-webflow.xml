@@ -8,7 +8,7 @@
                    http://www.springframework.org/schema/webflow-config
                    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-        <context:component-scan base-package="controller" />
+        <context:component-scan base-package="webflow" />
 
         <flow:flow-registry id="flowRegistry" base-path="/WEB-INF/webflow">
             <flow:flow-location path="order.xml" id="order"></flow:flow-location>
