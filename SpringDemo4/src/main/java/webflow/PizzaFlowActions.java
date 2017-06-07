@@ -39,6 +39,11 @@ public class PizzaFlowActions {
         return payment;
     }
 
+    public boolean checkDeliveryArea(String zipCode) {
+        System.out.println("TODO: Flesh out the checkDeliveryArea() method.");
+        return "75075".equals(zipCode);
+    }
+
     public void saveOrder(Order order) {
         System.out.println("save order:" + order);
     }
