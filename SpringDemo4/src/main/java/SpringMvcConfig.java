@@ -5,17 +5,25 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
+import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+import org.springframework.web.servlet.view.xml.MappingJackson2XmlView;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by admin on 2017/5/21.
@@ -25,6 +33,36 @@ import java.io.IOException;
 @ComponentScan(basePackages = "controller")
 public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new MappingJackson2HttpMessageConverter());
+    }
+
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+        configurer.favorPathExtension(true).
+                favorParameter(false).
+                parameterName("mediaType").
+                ignoreAcceptHeader(false).
+                useJaf(false).
+                defaultContentType(MediaType.TEXT_HTML).
+                mediaType("xml", MediaType.APPLICATION_XML).
+                mediaType("html", MediaType.TEXT_HTML).
+                mediaType("json", MediaType.APPLICATION_JSON);
+    }
+
+    @Bean
+    public ViewResolver cnViewResolver(ContentNegotiationManager cm) {
+        ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
+        resolver.setContentNegotiationManager(cm);
+        resolver.setDefaultViews(Arrays.asList(new MappingJackson2JsonView(), new MappingJackson2XmlView()));
+        return resolver;
+    }
+
+//    @Bean
+//    public ViewResolver beanNameResolver() {
+//        return new BeanNameViewResolver();
+//    }
 
     @Bean
     public ViewResolver viewResolver() {

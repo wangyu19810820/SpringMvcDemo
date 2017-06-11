@@ -17,6 +17,14 @@ public class Spittle {
         this.id = id;
     }
 
+    public Spittle() {
+    }
+
+    public Spittle(Long id, String message) {
+        this.id = id;
+        this.message = message;
+    }
+
     public Spittle(Long id, String message, Date time) {
         this.id = id;
         this.message = message;
