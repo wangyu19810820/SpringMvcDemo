@@ -21,12 +21,12 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/restful")
-public class RestfulDemo {
+public class RestfulServerController {
 
     private SpittleService service;
 
     @Autowired
-    public RestfulDemo(SpittleService service) {
+    public RestfulServerController(SpittleService service) {
         this.service = service;
     }
 
@@ -47,6 +47,7 @@ public class RestfulDemo {
         if (id == 0) {
             throw new SpitteNotFoundException();
         } else {
+
             return new Spittle((long)id, "aaa");
         }
     }
@@ -57,6 +58,17 @@ public class RestfulDemo {
         URI uri = builder.path("/restful/get").query("id=" + spittle.getId()).build().toUri();
         headers.setLocation(uri);
         return new ResponseEntity<Spittle>(spittle, headers, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/update/{id}")
+    public void update(@RequestBody Spittle spittle, @PathVariable long id) {
+        System.out.println(id);
+        System.out.println(spittle);
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable long id) {
+        System.out.println(id);
     }
 
     @ExceptionHandler(SpitteNotFoundException.class)

@@ -10,10 +10,10 @@
 
     <script>
         $(function() {
-            var data1={"id":"1","message":"aaa"};
+            var data1={"id":"2","message":"aaa"};
             console.log(JSON.stringify(data1));
             $.ajax({
-                url:'http://localhost:8080/restful/create',
+                url:'http://localhost:8080/restful/update/1',
                 dataType:'json',
                 type:'post',
                 contentType:'application/json',
