@@ -31,6 +31,10 @@ public class Error {
         this.message = message;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Error{" +
