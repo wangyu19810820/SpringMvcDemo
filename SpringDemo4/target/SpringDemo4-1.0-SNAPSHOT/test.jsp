@@ -1,12 +1,19 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: admin
+  Date: 2017/6/17
+  Time: 12:13
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
 
     <script>
         $(function() {
@@ -19,9 +26,9 @@
                 contentType:'application/json',
                 data:JSON.stringify(data1),
                 success:function(res) {
-                   console.log(res)
+                    console.log(res)
                 }
-           })
+            })
         });
     </script>
 </head>

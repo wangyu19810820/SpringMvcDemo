@@ -16,14 +16,14 @@
 
     <context:component-scan base-package="controller"></context:component-scan>
     <context:annotation-config></context:annotation-config>
-    <context:component-scan base-package="controller"/>
+    <mvc:annotation-driven />
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="1"></property>
         <property name="prefix" value="/WEB-INF/views/"></property>
         <property name="suffix" value=".jsp"></property>
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     </bean>
-
 
 
 </beans>
