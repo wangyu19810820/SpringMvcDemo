@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38a8655d-435b-4df5-92fd-f9114f93f15a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_3_176.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_derby_derby_10_13_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_3_2_10_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_3_2_10_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_3_2_10_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_2_10_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/SecurityWebInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/config/DatabaseConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/config/RootConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/config/SecurityConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/interceptor/Interceptor1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/interceptor/Interceptor2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/interceptor/Interceptor3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/test/controller/TestDemo1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/test/controller/TestSpittleController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/test/database/TestDatabase.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/RootConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/classes/RootConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/RootConfig.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/classes/SpringMvcConfig.class" afterPath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/classes/SpringMvcConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/SpringMvcConfig.class" afterPath="$PROJECT_DIR$/target/classes/SpringMvcConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SpringDemo4_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SpringDemo4_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpringDemo4.iml" afterPath="$PROJECT_DIR$/SpringDemo4.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SpittleWebConfig.java" afterPath="$PROJECT_DIR$/src/main/java/SpittleWebConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SpringMvcConfig.java" afterPath="$PROJECT_DIR$/src/main/java/SpringMvcConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/RestfulServerController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/RestfulServerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/classes/springweb.xml" afterPath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/classes/springweb.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/SpringDemo4-1.0-SNAPSHOT/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/springweb.xml" afterPath="$PROJECT_DIR$/target/classes/springweb.xml" />
-    </list>
+    <list default="true" id="38a8655d-435b-4df5-92fd-f9114f93f15a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -251,8 +216,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="381" />
-    <option name="y" value="60" />
+    <option name="x" value="26" />
+    <option name="y" value="140" />
     <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
@@ -1011,7 +976,7 @@
       <workItem from="1497966050548" duration="8049000" />
       <workItem from="1498051060353" duration="12835000" />
       <workItem from="1498091140677" duration="102000" />
-      <workItem from="1498137858069" duration="104000" />
+      <workItem from="1498137858069" duration="185000" />
     </task>
     <servers />
   </component>
@@ -1048,7 +1013,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161513000" />
+    <option name="totallyTimeSpent" value="161594000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1060,7 +1025,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="381" y="60" width="1378" height="744" extended-state="0" />
+    <frame x="26" y="140" width="1378" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
