@@ -42,7 +42,7 @@ public class RestfulServerController {
     }
 
     @RequestMapping(value = "get")
-    @ResponseBody
+        @ResponseBody
     public Spittle get(int id) {
         if (id == 0) {
             throw new SpitteNotFoundException();

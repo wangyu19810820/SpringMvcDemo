@@ -1,8 +1,8 @@
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletRegistration;
+import javax.servlet.*;
 
 /**
  * Created by admin on 2017/5/21.
@@ -12,7 +12,7 @@ public class SpittleWebConfig {
 //
 //    @Override
 //    protected Class<?>[] getRootConfigClasses() {
-//        return new Class<?>[]{RootConfig.class};
+//        return new Class<?>[]{config.RootConfig.class};
 //    }
 //
 //    @Override

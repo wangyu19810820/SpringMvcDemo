@@ -2,7 +2,6 @@ package controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -29,9 +28,14 @@ public class Demo1 {
     }
 
     @RequestMapping("/test")
-    public Map test() {
+    public ModelAndView test() {
+
         Map map = new HashMap();
-        map.put("aa", "bb");
-        return map;
+        map.put("val1", "aa");
+        map.put("val2", "bb");
+
+        ModelAndView modelAndView = new ModelAndView("/test");
+        modelAndView.addObject("data", map);
+        return modelAndView;
     }
 }
