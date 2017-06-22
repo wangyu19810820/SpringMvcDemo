@@ -1,0 +1,3 @@
+06-22 01:01:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHORITIES" not found; SQL statement:
+select username,authority from authorities where username = ? [42102-176]

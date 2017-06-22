@@ -1,3 +1,6 @@
+import interceptor.Interceptor1;
+import interceptor.Interceptor2;
+import interceptor.Interceptor3;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -33,11 +36,13 @@ import java.util.List;
 @ComponentScan(basePackages = "controller")
 public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
+    // 信息转换器，@ResponseBody将数据转成json
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new MappingJackson2HttpMessageConverter());
     }
 
+    // 多视图协商，配置
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.favorPathExtension(true).
@@ -51,6 +56,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
                 mediaType("json", MediaType.APPLICATION_JSON);
     }
 
+    // 多视图协商，视图解析器
     @Bean
     public ViewResolver cnViewResolver(ContentNegotiationManager cm) {
         ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
@@ -64,6 +70,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 //        return new BeanNameViewResolver();
 //    }
 
+    // 普通jsp视图解析器
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -71,6 +78,19 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
         resolver.setSuffix(".jsp");
         return resolver;
     }
+
+    // 拦截器
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new Interceptor1())
+                .addPathPatterns("/Demo1/**")
+                .excludePathPatterns("/Demo1/test");
+        registry.addWebRequestInterceptor(new Interceptor2())
+                .addPathPatterns("/spittle");
+        registry.addInterceptor(new Interceptor3())
+                .addPathPatterns("/spittle");
+    }
+
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
