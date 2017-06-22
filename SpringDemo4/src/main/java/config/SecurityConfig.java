@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import security.UserDetailsServiceImpl;
 
 import javax.sql.DataSource;
 
@@ -40,14 +42,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/static/**");
+        web.ignoring().antMatchers("/h2/**");
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication().withUser("user").password("1111").roles("user");
-        auth.jdbcAuthentication().dataSource(dataSource);
-    }
 
+//        auth.jdbcAuthentication().dataSource(dataSource);
+
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .usersByUsernameQuery("select username, password, true from users where username = ?")
+//                .authoritiesByUsernameQuery("select username, authority from authorities where username = ?")
+//                .passwordEncoder(NoOpPasswordEncoder.getInstance());
+
+        auth.userDetailsService(new UserDetailsServiceImpl());
+    }
 
 }

@@ -21,6 +21,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    
+    <listener>
+        <listener-class>listener.H2DBServerStartListener</listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>DispatchServlet</servlet-name>
@@ -49,6 +53,21 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
 
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <init-param>
+            <param-name>webAllowOthers</param-name>
+            <param-value></param-value>
+        </init-param>
+        <init-param>
+            <param-name>trace</param-name>
+            <param-value></param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>/</url-pattern>
@@ -57,6 +76,11 @@
     <servlet-mapping>
         <servlet-name>flowServlet</servlet-name>
         <url-pattern>*.flow</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/h2/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
