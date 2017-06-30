@@ -26,6 +26,17 @@
         <listener-class>listener.H2DBServerStartListener</listener-class>
     </listener>
 
+    <!-- SpringSecurity：注册filter，或者新建类继承AbstractSecurityWebApplicationInitializer -->
+    <!--<filter>-->
+        <!--<filter-name>springSecurityFilterChain</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>springSecurityFilterChain</filter-name>-->
+        <!--<servlet-name>DispatchServlet</servlet-name>-->
+    <!--</filter-mapping>-->
+
     <servlet>
         <servlet-name>DispatchServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
