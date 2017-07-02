@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         userAuthList.add(new SimpleGrantedAuthority("normal"));
 
         List<GrantedAuthority> adminAuthList = new ArrayList<>();
-        adminAuthList.add(new SimpleGrantedAuthority("admin"));
+        adminAuthList.add(new SimpleGrantedAuthority("ROLE_admin"));
 
         if (s.equals("admin")) {
             return new User(s, "1111", adminAuthList);

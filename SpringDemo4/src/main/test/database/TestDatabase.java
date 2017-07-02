@@ -1,5 +1,6 @@
 package database;
 
+import config.DatabaseConfig;
 import config.RootConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +18,7 @@ import java.sql.ResultSet;
  * Created by admin on 2017/6/21.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {RootConfig.class})
+@ContextConfiguration(classes = {DatabaseConfig.class})
 public class TestDatabase {
 
     @Autowired
@@ -38,8 +39,8 @@ public class TestDatabase {
 //                    "`password`  varchar(10) ," +
 //                    "`enabled`  int " +
 //                    ")");
-//            boolean b1 = conn.createStatement().execute("INSERT INTO users (username, password, enabled) VALUES ('user1', '1111', 1)");
-//            System.out.println(b1);
+            boolean b1 = conn.createStatement().execute("INSERT INTO users (username, password, enabled) VALUES ('admin', '1111', 1)");
+            System.out.println(b1);
 
             ResultSet rs = conn.createStatement().executeQuery("SELECT count(*) FROM users");
             rs.next();

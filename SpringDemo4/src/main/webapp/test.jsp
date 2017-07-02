@@ -14,7 +14,7 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
-
+    <script src="base64.js" type="application/javascript"></script>
     <script>
         $(function() {
             var data1={"id":"2","message":"aaa"};
@@ -22,14 +22,23 @@
             $.ajax({
                 url:'http://localhost:8080/restful/get?id=1',
                 dataType:'json',
-                type:'post',
+                type:'get',
                 contentType:'application/json',
-                data:JSON.stringify(data1),
+                beforeSend:function(xhr){
+                    xhr.setRequestHeader('Authorization', make_base_auth("admin", "1111"));
+                },
+//                data:JSON.stringify(data1),
                 success:function(res) {
                     console.log(res)
                 }
             })
         });
+
+        function make_base_auth(user, password) {
+            var tok = user + ':' + password;
+            var hash = Base64.encode(tok);
+            return "Basic " + hash;
+        }
     </script>
 </head>
 <body>

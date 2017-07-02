@@ -39,17 +39,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .formLogin()
 //                .and()
 //                .httpBasic();
-        http.authorizeRequests()
-                .antMatchers("/Demo1/*")    // 匹配/Demo1/, 不匹配/Demo1
-                .hasAuthority("admin")
-                .antMatchers("/Demo1/**")   // 匹配/Demo1/, 也匹配/Demo1
-                .authenticated()
-                .antMatchers(HttpMethod.POST,"/shop/**")
-                .authenticated()
-                .anyRequest()
-                .permitAll()
+        http
+                .authorizeRequests()
+                    .antMatchers("/Demo1/*")    // 匹配/Demo1/, 不匹配/Demo1
+    //                .hasAuthority("ROLE_admin")
+                    .hasRole("admin")
+                    .antMatchers("/Demo1/**")   // 匹配/Demo1/, 也匹配/Demo1
+                    .access("hasRole('ROLE_admin') and hasIpAddress('127.0.0.1')")
+    //                .authenticated()
+                    .antMatchers(HttpMethod.POST,"/shop/**")
+//                    .authenticated()
+//                    .antMatchers("/spittler/register")      // 启用了认证后，默认启用csrf，需在表单添加_csrf隐藏域
+                    .authenticated()
+                    .antMatchers("/restful/**")
+                    .hasRole("admin")
+                    .anyRequest()
+                    .permitAll()
+//                .and()
+//                    .formLogin().loginPage("/login1")
                 .and()
-                .formLogin();
+//                    .antMatcher("/restful/**")
+                    .httpBasic();
     }
 
     @Override
@@ -60,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 内存用户校验
-//        auth.inMemoryAuthentication().withUser("user").password("1111").roles("user");
+//        auth.inMemoryAuthentication().withUser("user").password("1111").roles("admin");
 
         // 关系型数据库用户校验
         // 用户权限的表结构和默认表结构完全相同，使用默认sql语句，查询用户和权限信息
