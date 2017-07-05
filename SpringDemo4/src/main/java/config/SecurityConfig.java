@@ -40,6 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .httpBasic();
         http
+//                .csrf()
+//                .disable()
                 .authorizeRequests()
                     .antMatchers("/Demo1/*")    // 匹配/Demo1/, 不匹配/Demo1
     //                .hasAuthority("ROLE_admin")
@@ -53,13 +55,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authenticated()
                     .antMatchers("/restful/**")
                     .hasRole("admin")
+                    .antMatchers("/admin")
+                    .access("isAuthenticated() and principal.username == 'admin'")
                     .anyRequest()
                     .permitAll()
-//                .and()
-//                    .formLogin().loginPage("/login1")
                 .and()
-//                    .antMatcher("/restful/**")
-                    .httpBasic();
+                    .formLogin()
+                    .loginPage("/login1")
+//                .and()
+////                    .antMatcher("/restful/**")
+//                    .httpBasic()
+//                .and()
+//                    .rememberMe()
+//                    .tokenValiditySeconds(2419200)
+//                    .key("springmvcdemo")
+                .and()
+                    .logout()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/");
     }
 
     @Override
