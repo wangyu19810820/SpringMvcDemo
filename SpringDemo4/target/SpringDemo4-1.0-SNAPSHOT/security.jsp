@@ -15,7 +15,7 @@
 <body>
     <p>username:<security:authentication property="principal.username"
                                 var="loginid" scope="request"/></p>
-    <p>Credentials:<security:authentication property="Credentials" /></p>
+    <p>Credentials:<security:authentication property="Credentials" /></p>`
     <p>details:<security:authentication property="details" /></p>
     username:${loginid}<br/>
 

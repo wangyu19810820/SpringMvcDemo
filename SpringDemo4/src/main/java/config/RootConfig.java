@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan(basePackages = {"service"})
 @ImportResource("classpath:spring-webflow.xml")
-@Import(SecurityConfig.class)
+@Import(value = {SecurityConfig.class, MethodSecurityConfig.class})
 public class RootConfig {
 
 

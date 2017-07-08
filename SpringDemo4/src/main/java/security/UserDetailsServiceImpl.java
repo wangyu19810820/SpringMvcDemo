@@ -25,10 +25,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         List<GrantedAuthority> userAuthList = new ArrayList<>();
-        userAuthList.add(new SimpleGrantedAuthority("user"));
+        userAuthList.add(new SimpleGrantedAuthority("ROLE_user"));
         userAuthList.add(new SimpleGrantedAuthority("normal"));
 
         List<GrantedAuthority> adminAuthList = new ArrayList<>();
+        adminAuthList.add(new SimpleGrantedAuthority("ROLE_user"));
         adminAuthList.add(new SimpleGrantedAuthority("ROLE_admin"));
 
         if (s.equals("admin")) {
