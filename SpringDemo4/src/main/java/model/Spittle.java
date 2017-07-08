@@ -9,6 +9,8 @@ import java.util.Date;
 public class Spittle {
     protected Long id;
 
+    protected String name;
+
     protected String message;
 
     protected Date time;
@@ -42,6 +44,14 @@ public class Spittle {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMessage() {
@@ -84,10 +94,9 @@ public class Spittle {
     public String toString() {
         return "Spittle{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", message='" + message + '\'' +
                 ", time=" + time +
                 '}';
     }
-
-
 }

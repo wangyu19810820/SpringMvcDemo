@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import service.SecuredSpittleService;
 
 import javax.annotation.security.RolesAllowed;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class SecuredSpittleServiceImpl implements SecuredSpittleService {
@@ -28,4 +31,31 @@ public class SecuredSpittleServiceImpl implements SecuredSpittleService {
     return spittle;
   }
 
+  public void addSpittleList(List<Spittle> spittleList) {
+    System.out.println("addSpittleList Method was called successfully");
+    System.out.println(spittleList);
+  }
+
+  public List<Spittle> showList() {
+    System.out.println("showList Method was called successfully");
+    List list = new ArrayList();
+
+    Spittle spittle1 = new Spittle();
+    spittle1.setName("user");
+    list.add(spittle1);
+
+    Spittle spittle2 = new Spittle();
+    spittle2.setName("admin");
+    list.add(spittle2);
+
+    Spittle spittle3 = new Spittle();
+    spittle3.setName("aaa");
+    list.add(spittle3);
+    return list;
+  }
+
+  public void deleteSpittle(List<Spittle> spittleList) {
+    System.out.println("deleteSpittle Method was called successfully");
+    System.out.println(spittleList);
+  }
 }
