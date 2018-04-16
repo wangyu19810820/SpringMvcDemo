@@ -17,13 +17,35 @@
         <!--<param-value>classpath:springroot.xml</param-value>-->
     <!--</context-param>-->
 
+    <!-- h2数据库配置 -->
+    <context-param>
+        <param-name>db.url</param-name>
+        <param-value>jdbc:h2:mem:test</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.user</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.password</param-name>
+        <param-value>sa1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.tcpServer</param-name>
+        <param-value>-tcpAllowOthers</param-value>
+    </context-param>
+
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     
+    <!--<listener>-->
+        <!--<listener-class>listener.H2DBServerStartListener</listener-class>-->
+    <!--</listener>-->
+
     <listener>
-        <listener-class>listener.H2DBServerStartListener</listener-class>
+        <listener-class>org.h2.server.web.DbStarter</listener-class>
     </listener>
 
     <!-- SpringSecurity：注册filter，或者新建类继承AbstractSecurityWebApplicationInitializer -->
